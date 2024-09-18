@@ -21,8 +21,18 @@ CREATE TABLE Chocolate (
 	ChocolateDesc VARCHAR(200) NOT NULL,
 	ChocolatePrice DECIMAL (5, 2) NOT NULL,
 	ChocolateWeight INT NOT NULL,
-	CategoryID INT NOT NULL,
-     PRIMARY KEY (ChocolateID),
+	CategoryID char(5) NOT NULL,
+	PRIMARY KEY (ChocolateID),
+    FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
+);
+CREATE TABLE Chocolate (
+    ChocolateID CHAR(6) NOT NULL,
+    ChocolateName VARCHAR(50) NOT NULL,
+    ChocolateDesc VARCHAR(200) NOT NULL,
+    ChocolatePrice DECIMAL(5, 2) NOT NULL,
+    ChocolateWeight INT NOT NULL,
+    CategoryID CHAR(5) NOT NULL,
+    PRIMARY KEY (ChocolateID),
     FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
 );
 
@@ -79,28 +89,56 @@ INSERT INTO Review VALUES
 -- Please ensure you INSERT atleast 5 records for every table and add it below
 
 INSERT INTO Promotion VALUES
-	('P02', 'Summer Flash Sale', 40.0);
+	('P02', 'Summer Sale', 30.0);
 INSERT INTO Promotion VALUES
-	('P03', 'Anniversary Special', 90.0);
+	('P03', 'Christmas Special', 70.0);
 INSERT INTO Promotion VALUES
-	('P04', 'New Year’s Countdown Sale', 20.0);
+	('P04', 'New Year’s Countdown Sale', 50.0);
 INSERT INTO Promotion VALUES
-	('P05', 'Mid-Year Clearance Sale', 60.0);
+	('P05', 'Mid-Year Sale', 60.0);
 INSERT INTO Promotion VALUES
 	('P06', 'Black Friday Sale', 70.0);
+    
 INSERT INTO Category VALUES
-	('CAT01', "Ecuador Single Origin", "Cocoa beans from a single Ecuadorian source");
-  
-    
+    ('CAT01', 'Piura Porcelana ', 'Cocoa beans from Swiss'),
+    ('CAT02', 'Cacaosuyo Piura', '70% dark chocolate comes from Peru'),
+    ('CAT03', 'Ghana Milk', 'Smooth milk chocolate from Ghana'),
+    ('CAT04', 'Parlor Cocoa', 'Premium cocoa sourced from California'),
+    ('CAT05', 'Amano Madagascar', 'Unique white chocolate bar from Madagascar');
+
+INSERT INTO Chocolate VALUES
+    ('CHOC13', 'Dark Chocolate', 'Bite-sized dark chocolate bar', 16.99, 80, 'CAT01'),
+    ('CHOC14', 'Half Milk Chocolate', 'Classic milk chocolate bar', 5.99, 100, 'CAT03'),
+    ('CHOC15', 'White Chocolate Truffles', 'Delicate white chocolate truffles', 24.99, 120, 'CAT05'),
+    ('CHOC16', 'Semisweeet Chocolate', 'Slightly smoky but well-balanced', 12.99, 90, 'CAT02'),
+    ('CHOC17', 'Milk Chocolate', 'Silky milk chocolate with a hint of caramel', 9.99, 85, 'CAT04');
+
+INSERT INTO Discount VALUES
+    ('P01', 'CHOC13', '2022-06-13 10:00:00', '2023-07-12 18:00:00'),
+    ('P02', 'CHOC14', '2022-12-06 09:00:00', '2023-01-05 17:00:00'),
+    ('P03', 'CHOC15', '2023-04-15 06:00:00', '2023-06-20 12:00:00'),
+    ('P04', 'CHOC16', '2023-10-24 07:00:00', '2023-08-12 16:00:00'),
+    ('P05', 'CHOC17', '2023-12-23 10:00:00', '2024-01-09 23:00:00');
+
+INSERT INTO Customer VALUES
+    ('CUS146', 'Emily Snow', 'emily.snow2@gamil.com', '399806323'),
+    ('CUS147', 'John Wason', 'john.wason63@gmail.com', '045677525'),
+    ('CUS148', 'Shara Tara', 'shara.tara@gamil.com', '049157159'),
+    ('CUS149', 'Oliver William', 'oliver.william@gamil.com', '826335755'),
+    ('CUS150', 'Steve Stark', 'steve.stark32@gmail.com', '839955392');
+
+INSERT INTO Review VALUES
+    ('REV132', 8, 'Very delicious dark chocolate', '2021-09-02 13:22:54', 'CUS145', 'CHOC13'),
+    ('REV133', 9, 'Smooth milk chocolate', '2021-10-06 10:22:54', 'CUS146', 'CHOC14'),
+    ('REV134', 7, 'Sweet white cream truffles', '2023-04-16 09:12:45', 'CUS147', 'CHOC15'),
+    ('REV135', 10, 'Smooth texture and a beautifully balanced', '2023-07-18 12:45:30', 'CUS148', 'CHOC16'),
+    ('REV136', 9, 'Very smooth and creamy', '2022-10-02 14:32:12', 'CUS149', 'CHOC17');
 select *
-from Promotion;
-    
+from Cholocalate;
+
 -- Question-B
-/* Explain in simple words what each query does and make sure you comment it
- */
-
+/* Explain in simple words what each query does and make sure you comment it*/
 -- An example of an answer to a Query
-
 /* This query prints the names of all chocolates */
 
 Select ChocolateName
@@ -118,7 +156,7 @@ WHERE ChocolatePrice > 10.00;
 SELECT CustomerName, CustomerEmail
 FROM Customer
 WHERE CustomerName LIKE 'J%' AND CustomerEmail LIKE '%.com';
---This query selects and prints those Customers whose name starts with "J" and email ends with ".com"
+-- This query selects and prints those Customers whose name starts with "J" and email ends with ".com"
 
 
 -- Query 3: A query involving a join between at least two tables with an order by clause. Insert your answer below
@@ -132,4 +170,4 @@ ORDER BY Review.ReviewRating DESC;
 SELECT CategoryID, AVG(ChocolatePrice) AS AvgPrice
 FROM Chocolate
 GROUP BY CategoryID;
---This query groups chocolate by categoryID and then calculates the average price of each chocolate. Its result would show categoryID and average of prices.
+-- This query groups chocolate by categoryID and then calculates the average price of each chocolate. Its result would show categoryID and average of prices.
