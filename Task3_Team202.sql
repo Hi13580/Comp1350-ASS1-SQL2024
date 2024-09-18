@@ -171,30 +171,30 @@ Select ChocolateName
 from Chocolate;
 
 -- Query 1: A query involving a single table with one condition. Insert your answer below
-SELECT ChocolateName
-FROM Chocolate
-WHERE ChocolatePrice>15.00;
+Select ChocolateName
+from Chocolate
+where ChocolatePrice>15.00;
 -- This query selects and prints those chocolate names whose price is greater than $15. 
 
 
 -- Query 2: A query involving a single table with two conditions, with one of the conditions that uses a wild card operator. Insert your answer below
-SELECT CustomerName, CustomerEmail
-FROM Customer
-WHERE CustomerName LIKE 'J%' AND CustomerEmail LIKE '%.com';
+Select CustomerName, CustomerEmail
+from Customer
+where CustomerName like 'J%' and CustomerEmail like '%.com';
 -- This query selects and prints those Customers whose name starts with "J" and email ends with ".com"
 
 
 -- Query 3: A query involving a join between at least two tables with an order by clause. Insert your answer below
-SELECT Chocolate.ChocolateName, Review.ReviewRating
-FROM Review
-JOIN Chocolate ON Review.ChocolateID = Chocolate.ChocolateID
-ORDER BY Review.ReviewRating DESC;
+Select Chocolate.ChocolateName, Review.ReviewRating
+from Review
+join Chocolate on Review.ChocolateID=Chocolate.ChocolateID
+order by Review.ReviewRating DESC;
 -- This query selects chocolate name and review rating by joining the review and chocolate tables. It then prints the result of review rating in descending order.
 
 -- Query 4: A query involving a single table with an aggregate and group by function. Insert your answer below
-SELECT CategoryID, ROUND(AVG(ChocolatePrice), 2) AS AvgPrice
-FROM Chocolate
-GROUP BY CategoryID;
+Select CategoryID, ROUND(AVG(ChocolatePrice), 2) as AvgPrice
+from Chocolate
+group by CategoryID;
 -- This query groups chocolate by categoryID and then calculates the average price of each chocolate. Its result would show categoryID and average of prices.
 
 
