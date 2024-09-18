@@ -86,6 +86,10 @@ INSERT INTO Promotion VALUES
 	('P04', 'New Year’s Countdown Sale', 20.0);
 INSERT INTO Promotion VALUES
 	('P05', 'Mid-Year Clearance Sale', 60.0);
+INSERT INTO Promotion VALUES
+	('P06', 'Black Friday Sale', 70.0);
+INSERT INTO Category VALUES
+	('CAT01', "Ecuador Single Origin", "Cocoa beans from a single Ecuadorian source");
   
     
 select *
