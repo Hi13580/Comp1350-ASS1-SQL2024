@@ -123,7 +123,7 @@ INSERT INTO Review VALUES
     ('REV135', 10, 'Smooth texture and a beautifully balanced', '2023-07-18 12:45:30', 'CUS148', 'CHOC16'),
     ('REV136', 9, 'Very smooth and creamy', '2023-10-02 14:32:12', 'CUS149', 'CHOC17');
 select *
-from Cholocalate;
+from Chocolate;
 
 
 /*
