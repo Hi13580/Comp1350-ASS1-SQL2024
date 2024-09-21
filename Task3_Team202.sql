@@ -1,5 +1,5 @@
 /*
-Comp1350 Assignment 1 task 3 team202 2024
+Comp1350 Assignment 1 task 3 Team 202, 2024
 Student ID  Student Name
 47856254    Priyanka Priyanka
 48161926    Rahul Kumar
@@ -7,9 +7,6 @@ Student ID  Student Name
 48516589    Minying wu
 
 */
-
-
-
 -- Question-A
 -- Table Creation (Incomplete and Erroneous - please fix the errors and complete this section)
 
@@ -190,21 +187,21 @@ where ChocolatePrice>15.00;
 
 
 -- Query 2: A query involving a single table with two conditions, with one of the conditions that uses a wild card operator. Insert your answer below
-Select CustomerName, CustomerEmail
-from Customer
-where CustomerName like 'J%' and CustomerEmail like '%.com';
--- This query selects and prints those Customers whose name starts with "J" and email ends with ".com"
-
+Select ChocolateName, ChocolatePrice
+from Chocolate
+where ChocolateName like '%Milk%' and ChocolatePrice<10.00;
+-- This query selects and prints those Chocolates that have a name containing "Milk" and are priced below 10.00 
 
 -- Query 3: A query involving a join between at least two tables with an order by clause. Insert your answer below
-Select Chocolate.ChocolateName, Review.ReviewRating
-from Review
-join Chocolate on Review.ChocolateID=Chocolate.ChocolateID
-order by Review.ReviewRating DESC;
--- This query selects chocolate name and review rating by joining the review and chocolate tables. It then prints the result of review rating in descending order.
+select Promotion.PromoName, Chocolate.ChocolateName, Discount.StartDate
+from Discount
+join Promotion on Discount.PromotionID = Promotion.PromoID
+join Chocolate on Discount.ChocolateID = Chocolate.ChocolateID
+order by Discount.StartDate;
+-- This query selects the promotion names and chocolate names for discounts by joining promotion and chocolate on discount tables. It then print the ordered by the start date of the discount in descending order.
 
 -- Query 4: A query involving a single table with an aggregate and group by function. Insert your answer below
-Select CategoryID, ROUND(AVG(ChocolatePrice), 2) as AvgPrice
+Select CategoryID, ROUND(AVG(ChocolatePrice), 0) as AvgPrice
 from Chocolate
 group by CategoryID;
 -- This query groups chocolate by categoryID and then calculates the average price of each chocolate. Its result would show categoryID and average of prices.
