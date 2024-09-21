@@ -131,12 +131,15 @@ INSERT INTO Review VALUES
     ('REV134', 7, 'Sweet white cream truffles', '2023-04-16 09:12:45', 'CUS147', 'CHOC15'),
     ('REV135', 10, 'Smooth texture and a beautifully balanced', '2023-07-18 12:45:30', 'CUS148', 'CHOC16'),
     ('REV136', 9, 'Very smooth and creamy', '2023-10-02 14:32:12', 'CUS149', 'CHOC17');
-select *
-from Chocolate;
+
 
 
 /*
 -- check A
+
+select *
+from Chocolate;
+
 Select ReviewID, ReviewRating, ReviewComment, ReviewDate, CustomerID, ChocolateID
 from Review;
 
