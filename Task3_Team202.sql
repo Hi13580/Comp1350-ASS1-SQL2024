@@ -1,3 +1,15 @@
+/*
+Comp1350 Assignment 1 task 3 team202 2024
+Student ID  Student Name
+47856254    Priyanka Priyanka
+48161926    Rahul Kumar
+48588466    Fahmida Alam
+48516589    Minying wu
+
+*/
+
+
+
 -- Question-A
 -- Table Creation (Incomplete and Erroneous - please fix the errors and complete this section)
 
