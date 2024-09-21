@@ -132,13 +132,12 @@ INSERT INTO Review VALUES
     ('REV135', 10, 'Smooth texture and a beautifully balanced', '2023-07-18 12:45:30', 'CUS148', 'CHOC16'),
     ('REV136', 9, 'Very smooth and creamy', '2023-10-02 14:32:12', 'CUS149', 'CHOC17');
 
-select *
-from Chocolate;
 
 
 /*
 -- check A
-
+select *
+from Chocolate;
 
 Select ReviewID, ReviewRating, ReviewComment, ReviewDate, CustomerID, ChocolateID
 from Review;
@@ -188,7 +187,6 @@ from Chocolate
 where ChocolatePrice>15.00;
 -- This query selects and prints those chocolate names whose price is greater than $15. 
 
-
 -- Query 2: A query involving a single table with two conditions, with one of the conditions that uses a wild card operator. Insert your answer below
 Select ChocolateName, ChocolatePrice
 from Chocolate
@@ -201,13 +199,10 @@ from Discount
 join Promotion on Discount.PromotionID = Promotion.PromoID
 join Chocolate on Discount.ChocolateID = Chocolate.ChocolateID
 order by Discount.StartDate;
--- This query selects the promotion names and chocolate names for discounts by joining promotion and chocolate on discount tables. It then print the ordered by the start date of the discount in descending order.
+-- This query selects promotion and chocolate names for discounts by joining promotion and chocolate on discount tables. It then prints the order by the start date of the discount in descending order.
 
 -- Query 4: A query involving a single table with an aggregate and group by function. Insert your answer below
 Select CategoryID, ROUND(AVG(ChocolatePrice), 0) as AvgPrice
 from Chocolate
 group by CategoryID;
 -- This query groups chocolate by categoryID and then calculates the average price of each chocolate. Its result would show categoryID and average of prices.
-
-
-
