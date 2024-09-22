@@ -199,7 +199,7 @@ from Discount
 join Promotion on Discount.PromotionID = Promotion.PromoID
 join Chocolate on Discount.ChocolateID = Chocolate.ChocolateID
 order by Discount.StartDate;
--- This query selects promotion and chocolate names for discounts by joining promotion and chocolate on discount tables. It then prints the order by the start date of the discount in descending order.
+-- This query selects promotion and chocolate names for discounts by joining promotion and chocolate on discount tables. It then prints the order by the start date of the discount in ascending order.
 
 -- Query 4: A query involving a single table with an aggregate and group by function. Insert your answer below
 Select CategoryID, ROUND(AVG(ChocolatePrice), 0) as AvgPrice
